@@ -1,3 +1,6 @@
+@extends('layouts.app')
+@section('content')
+
 <form action="{{ route('create.option') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
@@ -8,6 +11,7 @@
             @endforeach
         </select>
     </div>
+    <br>
     <div class="form-group">
         <label for="options">Option</label>
         <input type="text" name="option" placeholder="Please enter options"/>
@@ -15,3 +19,4 @@
     <button type="submit">Submit</button>
 
 </form>
+@endsection

@@ -22,16 +22,32 @@
 </head>
 
 <body>
-    <div class="nav-bar">
-        <a class="navbar-brand" href="#" class="">Voting App</a>
-    @if (Auth::check())
-    
-      <a href="{{ route('logout') }}" class="btn btn-danger">Log Out</a>
-      @else
-      <a href="{{ route('login') }}" class="btn btn-danger">Log In</a>
-
-    @endif
-    </div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/dashboard/index">
+                <span class="bg-dark rounded px-2 py-0 text-white">VA</span> <span class="text-black">
+                    <b>Dashboard</b> </span>
+            </a>
+            <div class="d-felx justify-content-between d-md-none d-block">
+                <button class="btn px-1 py-0 open-btn me-2"><i class="fa-solid fa-bars-staggered"></i></button>
+            </div>
+            <button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="fal fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        @if (Auth::check())
+                            <a class="btn btn-danger" href="{{ route('logout') }}">Log Out</a>
+                        @else
+                            <a href="{{ route('login') }}" class="btn btn-danger">Log In</a>
+                        @endif
+                    </li>
+                </ul>
+            </div>
+    </nav>
     <div class="container">
         @yield('content')
     </div>

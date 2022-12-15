@@ -24,14 +24,23 @@ class VoteController extends Controller
     {
         $a = array();
         $poll = Poll::where('id', $id)->with('options')->first();
-        foreach($poll->options as $option) {
+        foreach ($poll->options as $option) {
             array_push($a, $option->option);
         }
-        $voteCount = Vote::query()->where('poll_id', $id)->select('option_id')->distinct()->count();
-    //    dd($voteCount);
-      ;
+        // dd($a);
+        $voteCount = Vote::where('poll_id', $id)->get()->groupBy('option_id')->map(function ($items) {
+          $santosh =  $items->count();
+            return $santosh;
+        })->values();
+        
+        // foreach($poll->options as $option)
+        // {
+        //     array_push($voteCount, $option->id);
+        // }
+        // dd($voteCount);
+        ;
         $option = $a;
         $vote = $voteCount;
-        return view('frontend.count',['options' => $option, 'votes' => $vote]);
+        return view('frontend.count', ['options' => $option, 'votes' => $vote]);
     }
 }

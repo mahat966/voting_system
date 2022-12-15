@@ -12,23 +12,23 @@
             data: {
                 labels: <?php echo json_encode($options); ?>,
                 datasets: [{
-                    label: '',
+                    option: '',
                     data: <?php echo json_encode($votes); ?>,
                     backgroundColor: [
-                        'rgba(31, 58, 147, 1)',
-                        'rgba(37, 116, 169, 1)',
-                        'rgba(92, 151, 191, 1)',
-                        'rgb(200, 247, 197)',
-                        'rgb(77, 175, 124)',
-                        'rgb(30, 130, 76)'
+                        'rgba(1, 2, 3, 4)',
+                        'rgba(1, 2, 3, 4)',
+                        'rgba(1, 2, 3, 4)',
+                        'rgb(4, 5, 6)',
+                        'rgb(7, 8, 9)',
+                        'rgb(10, 2, 3)'
                     ],
                     borderColor: [
-                        'rgba(31, 58, 147, 1)',
-                        'rgba(37, 116, 169, 1)',
-                        'rgba(92, 151, 191, 1)',
-                        'rgb(200, 247, 197)',
-                        'rgb(77, 175, 124)',
-                        'rgb(30, 130, 76)'
+                        'rgba(1, 2, 3, 4)',
+                        'rgba(1, 2, 3, 4)',
+                        'rgba(1, 2, 3, 4)',
+                        'rgb(4, 5, 6)',
+                        'rgb(7, 8, 9)',
+                        'rgb(10, 2, 3)'
                     ],
                     borderWidth: 1
                 }]
@@ -45,8 +45,8 @@
                 },
                 plugins: {
                     title: {
-                        display: false,
-                        text: 'Custom Chart Title'
+                        display: true,
+                        text: 'Total Answer Count'
                     },
                     legend: {
                         display: false,
