@@ -27,18 +27,16 @@ class VoteController extends Controller
         foreach ($poll->options as $option) {
             array_push($a, $option->option);
         }
-        // dd($a);
-        $voteCount = Vote::where('poll_id', $id)->get()->groupBy('option_id')->map(function ($items) {
-          $santosh =  $items->count();
+
+        $voteCount = Vote::where('poll_id', $id)
+        ->get()
+        ->groupBy('option_id')
+        ->map(function ($items) 
+        {
+            $santosh = $items->count();
             return $santosh;
         })->values();
-        
-        // foreach($poll->options as $option)
-        // {
-        //     array_push($voteCount, $option->id);
-        // }
-        // dd($voteCount);
-        ;
+
         $option = $a;
         $vote = $voteCount;
         return view('frontend.count', ['options' => $option, 'votes' => $vote]);

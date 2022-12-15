@@ -34,7 +34,7 @@ class PollController extends Controller
     
     public function polls()
     {
-        $polls = Poll::with('options')->get();
+        $polls = Poll::active()->with('options')->get();
         return view('dashboard.polls',compact('polls'));
     }
 
